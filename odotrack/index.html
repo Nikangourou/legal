@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OdoTrack Rally - Support / Assistance</title>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    nav { display: none; gap: .5rem; margin-bottom: 1.5rem; }
+    .js nav { display: flex; }
+    nav button { font: inherit; padding: .3rem .8rem; border: 1px solid currentColor; border-radius: .4rem; background: none; color: inherit; cursor: pointer; }
+    nav button[aria-pressed="true"] { font-weight: 700; text-decoration: underline; }
+    .js section[lang]:not(.active) { display: none; }
+    section + section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #8884; }
+    .js section + section { margin-top: 0; padding-top: 0; border-top: 0; }
+  </style>
+</head>
+<body>
+  <nav aria-label="Language / Langue">
+    <button type="button" data-set="en">English</button>
+    <button type="button" data-set="fr">Français</button>
+  </nav>
+
+  <section lang="en" id="en">
+    <h1>OdoTrack Rally - Support</h1>
+    <p>OdoTrack Rally is a GPS trip meter for rally co-drivers, published by Nicolas Neveu. If you have a question, found a bug or have a suggestion, write to me:</p>
+    <p><a href="mailto:nikangourou+odotrack@icloud.com">nikangourou+odotrack@icloud.com</a></p>
+
+    <h2>Reporting a problem</h2>
+    <p>To help me reproduce it, please include:</p>
+    <ul>
+      <li>your device model and its iOS or Android version;</li>
+      <li>what you did, what you expected and what happened instead;</li>
+      <li>a screenshot, if it helps.</li>
+    </ul>
+
+    <h2>Frequently asked questions</h2>
+
+    <h3>The distance is longer or shorter than my roadbook.</h3>
+    <p>A phone GPS is not a wheel sensor, and it follows a slightly different path than the roadbook measurement. Use <strong>Settings → Calibration</strong>: drive a section whose true length you know (at least about 1 km) and enter it, and the app computes a correction factor. At a known landmark you can also use the − and + buttons to resynchronise the readout without resetting.</p>
+
+    <h3>Tracking stops when the screen is off or the app is in the background.</h3>
+    <p>OdoTrack needs location access set to <strong>Always</strong> (iOS) or <strong>Allow all the time</strong> (Android), with precise location on. On Android, also disable battery optimisation for OdoTrack, as some phones stop background apps. Force-quitting the app ends tracking on both systems.</p>
+
+    <h3>My trip was interrupted.</h3>
+    <p>If the app was closed during a trip, the saved distance is kept and the trip is shown as interrupted. Tap <strong>Resume</strong> to continue with your counters and marks, or <strong>New trip</strong> to start from zero.</p>
+
+    <h3>The app says there is no recent accurate GPS fix.</h3>
+    <p>GPS can be weak in tunnels, under tree cover, between buildings or behind a coated windscreen. Check that precise location is allowed, and move the phone to a place with a clear view of the sky, such as near the windscreen.</p>
+
+    <h3>Battery use is high.</h3>
+    <p>Continuous GPS uses battery. On long stages, connect your phone to a charger.</p>
+
+    <h3>Where is my data?</h3>
+    <p>All trip data stays on your device; nothing is sent to a server. See the <a href="privacy/#en">privacy policy</a>.</p>
+  </section>
+
+  <section lang="fr" id="fr">
+    <h1>OdoTrack Rally - Assistance</h1>
+    <p>OdoTrack Rally est un compteur GPS pour copilotes de rallye, édité par Nicolas Neveu. Pour une question, un bug ou une suggestion, écrivez-moi :</p>
+    <p><a href="mailto:nikangourou+odotrack@icloud.com">nikangourou+odotrack@icloud.com</a></p>
+
+    <h2>Signaler un problème</h2>
+    <p>Pour m'aider à le reproduire, indiquez si possible :</p>
+    <ul>
+      <li>le modèle de votre appareil et sa version d'iOS ou d'Android ;</li>
+      <li>ce que vous avez fait, ce que vous attendiez et ce qui s'est passé ;</li>
+      <li>une capture d'écran, si elle aide.</li>
+    </ul>
+
+    <h2>Questions fréquentes</h2>
+
+    <h3>La distance est plus longue ou plus courte que mon roadbook.</h3>
+    <p>Le GPS d'un téléphone n'est pas un capteur de roue, et il suit un trajet légèrement différent de la mesure du roadbook. Utilisez <strong>Réglages → Calibration</strong> : parcourez une section dont vous connaissez la longueur réelle (au moins 1 km environ) et saisissez-la, l'app calcule un facteur de correction. À un repère connu, vous pouvez aussi utiliser les boutons − et + pour resynchroniser l'affichage sans le remettre à zéro.</p>
+
+    <h3>Le suivi s'arrête quand l'écran est éteint ou que l'app est en arrière-plan.</h3>
+    <p>OdoTrack a besoin d'une autorisation de localisation sur <strong>Toujours</strong> (iOS) ou <strong>Toujours autoriser</strong> (Android), avec la localisation précise activée. Sur Android, désactivez aussi l'optimisation de la batterie pour OdoTrack, car certains téléphones arrêtent les apps en arrière-plan. Forcer la fermeture de l'app interrompt le suivi sur les deux systèmes.</p>
+
+    <h3>Mon parcours a été interrompu.</h3>
+    <p>Si l'app a été fermée pendant un parcours, la distance enregistrée est conservée et le parcours est signalé comme interrompu. Appuyez sur <strong>Reprendre</strong> pour continuer avec vos compteurs et vos repères, ou sur <strong>Nouveau parcours</strong> pour repartir de zéro.</p>
+
+    <h3>L'app indique qu'il n'y a pas de position GPS précise récente.</h3>
+    <p>Le GPS peut être faible dans un tunnel, sous les arbres, entre des immeubles ou derrière un pare-brise traité. Vérifiez que la localisation précise est autorisée et placez le téléphone avec une vue dégagée sur le ciel, par exemple près du pare-brise.</p>
+
+    <h3>La batterie se vide vite.</h3>
+    <p>Le GPS continu consomme de la batterie. Sur les longues spéciales, branchez votre téléphone sur un chargeur.</p>
+
+    <h3>Où sont mes données ?</h3>
+    <p>Toutes les données de parcours restent sur votre appareil ; rien n'est envoyé à un serveur. Consultez la <a href="privacy/#fr">politique de confidentialité</a>.</p>
+  </section>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var sections = { en: document.getElementById('en'), fr: document.getElementById('fr') };
+      var buttons = document.querySelectorAll('nav button');
+      function show(lang) {
+        root.lang = lang;
+        for (var k in sections) sections[k].classList.toggle('active', k === lang);
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.set === lang); });
+        try { history.replaceState(null, '', '#' + lang); } catch (e) {}
+      }
+      root.classList.add('js');
+      buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.set); }); });
+      var wanted = location.hash.slice(1);
+      if (!sections[wanted]) wanted = (navigator.language || 'en').slice(0, 2) === 'fr' ? 'fr' : 'en';
+      show(wanted);
+    })();
+  </script>
+</body>
+</html>
