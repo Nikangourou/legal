@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OdoTrack Rally - GPS trip meter for rally co-drivers</title>
+  <meta name="description" content="OdoTrack Rally is a GPS trip meter for rally co-drivers: total and partial distance, calibration, marks and background tracking. No ads, no account, data stays on your device.">
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    nav { display: none; gap: .5rem; margin-bottom: 1.5rem; }
+    .js nav { display: flex; }
+    nav button { font: inherit; padding: .3rem .8rem; border: 1px solid currentColor; border-radius: .4rem; background: none; color: inherit; cursor: pointer; }
+    nav button[aria-pressed="true"] { font-weight: 700; text-decoration: underline; }
+    .js section[lang]:not(.active) { display: none; }
+    section + section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #8884; }
+    .js section + section { margin-top: 0; padding-top: 0; border-top: 0; }
+  </style>
+</head>
+<body>
+  <nav aria-label="Language / Langue">
+    <button type="button" data-set="en">English</button>
+    <button type="button" data-set="fr">Français</button>
+  </nav>
+
+    <section lang="en" id="en">
+    <h1>OdoTrack Rally</h1>
+    <p><strong>The GPS trip meter for rally co-drivers.</strong> Follow your roadbook with a clear distance readout on your phone, published by Nikangourou.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Total and partial distance</strong>, with section times, speed and heading.</li>
+      <li><strong>Calibration</strong>: drive a section whose true length you know, enter it, and the app computes a correction factor to match your roadbook.</li>
+      <li><strong>Quick resync</strong>: at a known landmark, adjust the readout with the − and + buttons without resetting.</li>
+      <li><strong>Marks</strong>: add marks along the way, saved with their position and time.</li>
+      <li><strong>Keeps counting in the background</strong>, with the screen off or another app on screen.</li>
+      <li><strong>Trips survive interruptions</strong>: if the app is closed during a trip, resume with your counters and marks.</li>
+      <li><strong>Share</strong> an image of your trip with the app or person of your choice.</li>
+    </ul>
+
+    <h2>Private by design</h2>
+    <p>Your location is used only during a trip you start, to measure distance. All trip data stays on your device and nothing is sent to a server. No ads, no analytics, no account.</p>
+
+    <h2>Available on iOS and Android</h2>
+    <p>Questions or suggestions? See the <a href="../#en">support page</a> or write to <a href="mailto:nikangourou+odotrack@icloud.com">nikangourou+odotrack@icloud.com</a>.</p>
+    <p><a href="../#en">Support</a> · <a href="../privacy/#en">Privacy policy</a></p>
+  </section>
+
+  <section lang="fr" id="fr">
+    <h1>OdoTrack Rally</h1>
+    <p><strong>Le compteur GPS des copilotes de rallye.</strong> Suivez votre roadbook avec un affichage de distance clair sur votre téléphone, édité par Nikangourou.</p>
+
+    <h2>Fonctionnalités</h2>
+    <ul>
+      <li><strong>Distance totale et partielle</strong>, avec la durée des sections, la vitesse et le cap.</li>
+      <li><strong>Calibration</strong> : parcourez une section dont vous connaissez la longueur réelle, saisissez-la, et l'app calcule un facteur de correction pour coller à votre roadbook.</li>
+      <li><strong>Resynchronisation rapide</strong> : à un repère connu, ajustez l'affichage avec les boutons − et + sans remettre à zéro.</li>
+      <li><strong>Repères</strong> : ajoutez des repères en route, enregistrés avec leur position et leur heure.</li>
+      <li><strong>Continue de compter en arrière-plan</strong>, écran éteint ou avec une autre app affichée.</li>
+      <li><strong>Résiste aux interruptions</strong> : si l'app est fermée pendant un parcours, reprenez avec vos compteurs et vos repères.</li>
+      <li><strong>Partage</strong> d'une image de votre parcours avec l'app ou la personne de votre choix.</li>
+    </ul>
+
+    <h2>Respect de la vie privée</h2>
+    <p>Votre position n'est utilisée que pendant un parcours que vous démarrez, pour mesurer la distance. Toutes les données de parcours restent sur votre appareil et rien n'est envoyé à un serveur. Ni publicité, ni outil d'analyse, ni compte.</p>
+
+    <h2>Disponible sur iOS et Android</h2>
+    <p>Une question ou une suggestion ? Consultez la <a href="../#fr">page d'assistance</a> ou écrivez à <a href="mailto:nikangourou+odotrack@icloud.com">nikangourou+odotrack@icloud.com</a>.</p>
+    <p><a href="../#fr">Assistance</a> · <a href="../privacy/#fr">Politique de confidentialité</a></p>
+  </section>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var sections = { en: document.getElementById('en'), fr: document.getElementById('fr') };
+      var buttons = document.querySelectorAll('nav button');
+      function show(lang) {
+        root.lang = lang;
+        for (var k in sections) sections[k].classList.toggle('active', k === lang);
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.set === lang); });
+        try { history.replaceState(null, '', '#' + lang); } catch (e) {}
+      }
+      root.classList.add('js');
+      buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.set); }); });
+      var wanted = location.hash.slice(1);
+      if (!sections[wanted]) wanted = (navigator.language || 'en').slice(0, 2) === 'fr' ? 'fr' : 'en';
+      show(wanted);
+    })();
+  </script>
+</body>
+</html>
