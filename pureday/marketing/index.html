@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>PureDay - Quit a habit and watch your body recover</title>
+  <meta name="description" content="PureDay tracks your break from tobacco, vaping, alcohol, sugar, caffeine, cannabis, social media and more: live timer, money saved, recovery timeline. No account, no network, data stays on your device.">
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, sans-serif; max-width: 42rem; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+    nav { display: none; gap: .5rem; margin-bottom: 1.5rem; }
+    .js nav { display: flex; }
+    nav button { font: inherit; padding: .3rem .8rem; border: 1px solid currentColor; border-radius: .4rem; background: none; color: inherit; cursor: pointer; }
+    nav button[aria-pressed="true"] { font-weight: 700; text-decoration: underline; }
+    .js section[lang]:not(.active) { display: none; }
+    section + section { margin-top: 3rem; padding-top: 2rem; border-top: 1px solid #8884; }
+    .js section + section { margin-top: 0; padding-top: 0; border-top: 0; }
+  </style>
+</head>
+<body>
+  <nav aria-label="Language / Langue">
+    <button type="button" data-set="en">English</button>
+    <button type="button" data-set="fr">Français</button>
+  </nav>
+
+  <section lang="en" id="en">
+    <h1>PureDay</h1>
+    <p><strong>Quit a habit and watch your body recover.</strong> Track your break from tobacco, vaping, alcohol, junk food, caffeine, sugar, cannabis, social media or a habit of your own, published by Nikangourou.</p>
+
+    <h2>Features</h2>
+    <ul>
+      <li><strong>Several habits at once</strong>, each with its own start date and time. Already quit? Enter a past date.</li>
+      <li><strong>Live timer</strong> since your last time.</li>
+      <li><strong>Money saved and units avoided</strong>, based on your own price and daily consumption.</li>
+      <li><strong>Recovery timeline</strong> for each habit: every milestone has its own progress bar, and the ones you reach are dated.</li>
+      <li><strong>Relapses without guilt</strong>: the counter restarts, your best streak is kept.</li>
+    </ul>
+
+    <h2>Private by design</h2>
+    <p>Everything stays on your device. No account, no network, no ads, no analytics.</p>
+
+    <h2>Available on iOS and Android</h2>
+    <p>The app interface is in French.</p>
+    <p>PureDay is a wellness tracker, not medical advice. For help with an addiction or a health concern, talk to a health professional.</p>
+    <p>Questions or suggestions? See the <a href="../#en">support page</a> or write to <a href="mailto:nikangourou+pureday@icloud.com">nikangourou+pureday@icloud.com</a>.</p>
+    <p><a href="../#en">Support</a> · <a href="../privacy/#en">Privacy policy</a></p>
+  </section>
+
+  <section lang="fr" id="fr">
+    <h1>PureDay</h1>
+    <p><strong>Arrêtez une habitude et regardez votre corps récupérer.</strong> Suivez votre arrêt du tabac, de la vape, de l'alcool, de la malbouffe, de la caféine, du sucre, du cannabis, des réseaux sociaux ou d'une habitude de votre choix, édité par Nikangourou.</p>
+
+    <h2>Fonctionnalités</h2>
+    <ul>
+      <li><strong>Plusieurs habitudes à la fois</strong>, chacune avec sa date et son heure de début. Déjà arrêté ? Saisissez une date passée.</li>
+      <li><strong>Chrono en direct</strong> depuis la dernière fois.</li>
+      <li><strong>Argent économisé et unités évitées</strong>, selon votre prix et votre consommation quotidienne.</li>
+      <li><strong>Chronologie de récupération</strong> pour chaque habitude : chaque étape a sa propre barre de progression, et celles atteintes sont datées.</li>
+      <li><strong>Rechutes sans culpabilité</strong> : le compteur repart, votre meilleure série est conservée.</li>
+    </ul>
+
+    <h2>Respect de la vie privée</h2>
+    <p>Tout reste sur votre appareil. Ni compte, ni réseau, ni publicité, ni outil d'analyse.</p>
+
+    <h2>Disponible sur iOS et Android</h2>
+    <p>PureDay est une app de bien-être, pas un avis médical. Pour une aide face à une addiction ou un problème de santé, parlez-en à un professionnel de santé.</p>
+    <p>Une question ou une suggestion ? Consultez la <a href="../#fr">page d'assistance</a> ou écrivez à <a href="mailto:nikangourou+pureday@icloud.com">nikangourou+pureday@icloud.com</a>.</p>
+    <p><a href="../#fr">Assistance</a> · <a href="../privacy/#fr">Politique de confidentialité</a></p>
+  </section>
+
+  <script>
+    (function () {
+      var root = document.documentElement;
+      var sections = { en: document.getElementById('en'), fr: document.getElementById('fr') };
+      var buttons = document.querySelectorAll('nav button');
+      function show(lang) {
+        root.lang = lang;
+        for (var k in sections) sections[k].classList.toggle('active', k === lang);
+        buttons.forEach(function (b) { b.setAttribute('aria-pressed', b.dataset.set === lang); });
+        try { history.replaceState(null, '', '#' + lang); } catch (e) {}
+      }
+      root.classList.add('js');
+      buttons.forEach(function (b) { b.addEventListener('click', function () { show(b.dataset.set); }); });
+      var wanted = location.hash.slice(1);
+      if (!sections[wanted]) wanted = (navigator.language || 'en').slice(0, 2) === 'fr' ? 'fr' : 'en';
+      show(wanted);
+    })();
+  </script>
+</body>
+</html>
